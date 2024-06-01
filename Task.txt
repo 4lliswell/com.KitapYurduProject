@@ -1,0 +1,18 @@
+https://www.kitapyurdu.com/ sitesi açılır.
+Ana sayfanın açıldığı kontrol edilir.
+Çerezler onaylanır. (eğer açılıyorsa)
+Urun arama satırına "roman" yazdırılır ve aratılır.
+Arama sonuçlarının "roman" içerdiğini  kontrol edilir. 
+2. sayfaya geçiş yapılır.
+2. sayfaya geçiş yapıldığı kontrol edilir.
+Listelenen kitaplar içinden rastgele bir ürüne tıklanır. 
+Sepete ekle butonuna tıklanır.
+Sayfanın sağ üst kısmında bulunan sepet ikonundan ürünün eklendiği kontrol edilir.
+Sepetim butonuna tıklanır.
+Ürün miktarı 1 adet artırılır ve yenile butonuna tıklanır.
+"Sepetiniz güncelleniyor!" yazısı doğrulanır.
+Ürün sepetten silinir (Çarpı butonuna tıklanır)
+Sepetin boş olduğu kontrol edilir.
+
+NOT: Raporlama olarak Allure-Report kullanınız.
+     Ayrıca log4j kullanınız.
