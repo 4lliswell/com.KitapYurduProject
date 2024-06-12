@@ -1,2 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Sat Jun 01 19:35:56 EET 2024","Sat Jun 01 19:36:20 EET 2024","23962","Suite_1","Suit_1","tests.KitapYurduTest","tests.KitapYurduTest","test","Login Scenario with  username and password.",""

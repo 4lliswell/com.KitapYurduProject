@@ -1,7 +1,9 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -33,27 +35,29 @@ public class ProductDetailsPage {
     WebElement sepeteGitButton;
 
 
+    @Step("User adds the product to the cart")
     public void sepeteEkleButton() {
 
         ReusableMethods.waitForVisibility(sepeteEkle, 5);
-
         sepeteEkle.click();
-        LOG.info("user adds the product to cart");
+        LOG.info("User adds the product to the cart");
     }
 
-
+    @Step("User verifies the number of items in the cart")
     public void verifySepetCount(String count) {
 
-        ReusableMethods.threadSleep(3000);
-        ReusableMethods.assertText(count, sepetTextCount.getText());
-        LOG.info("user verifies the number of items in the cart");
+        By sepet = By.id("cart-items");
+        ReusableMethods.waitForTextToBe(sepet, count, 5);
+        Assert.assertEquals(count, sepetTextCount.getText());
+        LOG.info("User verifies the number of items in the cart");
     }
 
+    @Step("User goes to cart")
     public void sepeteGit() {
 
         sepetTextCount.click();
         sepeteGitButton.click();
-        LOG.info("user goes to cart");
+        LOG.info("User goes to cart");
     }
 }
 

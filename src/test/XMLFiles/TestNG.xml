@@ -7,7 +7,7 @@
     <test name="Suit_1" >
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="tests.KitapYurduTest"/>
+            <class name="tests.KitapYurdu"/>
         </classes>
     </test>
 

@@ -35,18 +35,14 @@ public class HomePage {
         LOG.info("User go to " + ConfigReader.getProperty(URL));
     }
 
+    @Step("User verifies homepage")
     public void verifyTitle(String expectedTitle) {
 
         Assert.assertTrue(Driver.getDriver().getTitle().equals(expectedTitle));
         LOG.info("User verify title " + Driver.getDriver().getTitle());
     }
 
-    public void searchProduct(String productName) {
-
-        inputSearchBox.sendKeys(productName + Keys.ENTER);
-        LOG.info("User search this product " + productName);
-    }
-
+    @Step("User accept to cookies")
     public void cookiesAccept() {
 
         ReusableMethods.waitForVisibility(cookieAcceptButton, 10);
@@ -55,8 +51,14 @@ public class HomePage {
             cookieAcceptButton.click();
             LOG.info("user accept to cookies");
         }
-
-
     }
+
+    @Step("User searches for product")
+    public void searchProduct(String productName) {
+
+        inputSearchBox.sendKeys(productName + Keys.ENTER);
+        LOG.info("User search this product " + productName);
+    }
+
 }
 

@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -28,31 +29,36 @@ public class SearchResultsPage {
     @FindBy(xpath = "//div[@class='name']")
     List<WebElement> searchBookLists;
 
+    @Step("User verify result")
     public void verifySearchResult(String product) {
 
-        ReusableMethods.assertText(product, resultTitle.getText());
+        Assert.assertEquals(product, resultTitle.getText());
         LOG.info("User verify result " + product);
     }
 
-    public void clickPage(String pageNumber){
+    @Step("User switches to new page")
+    public void clickPage(String pageNumber) {
 
-        WebElement secondPage = Driver.getDriver().findElement(By.linkText(pageNumber));
-        ReusableMethods.clickElementByJS(secondPage);
-        LOG.info("user switches to second page");
+        WebElement page = Driver.getDriver().findElement(By.linkText(pageNumber));
+        ReusableMethods.clickElementByJS(page);
+        LOG.info("User switches to new page");
     }
 
+    @Step("User verify that he is on the new page")
+    public void pageVerify(String urlPageNumber) {
+
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        Assert.assertTrue(actualUrl.contains(urlPageNumber));
+        LOG.info("User verify that he is on the new page");
+    }
+
+    @Step("User adds a random product to cart")
     public void chooseRandomBook() {
         Random random = new Random();
-        int aa = random.nextInt(searchBookLists.size());
+        int number = random.nextInt(searchBookLists.size());
 
-        searchBookLists.get(aa).click();
-        LOG.info("user adds a random product to cart");
-    }
-
-    public void pageVerify(String urlPageNumber){
-
-        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(urlPageNumber));
-        LOG.info("user confirms that it is on the second page");
+        searchBookLists.get(number).click();
+        LOG.info("User adds a random product to cart");
     }
 
 

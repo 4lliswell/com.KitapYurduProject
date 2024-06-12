@@ -1,5 +1,6 @@
 package utilities;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -22,17 +23,11 @@ public class ReusableMethods {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public static void threadSleep(int s) {
-
-        try {
-            Thread.sleep(s);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+    // Belirtilen WebElement'teki belirli bir metnin olusmasini bekler.
+    public static void waitForTextToBe(By element, String text, int timeout) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(element, text));
     }
 
-    public static void assertText(String expected, String actual) {
 
-        Assert.assertEquals(actual, expected);
-    }
 }

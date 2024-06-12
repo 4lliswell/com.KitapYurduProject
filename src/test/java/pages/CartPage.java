@@ -1,6 +1,7 @@
 package pages;
 
 import com.beust.ah.A;
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
@@ -31,9 +32,10 @@ public class CartPage {
     WebElement kaldirButton;
 
 
+    @Step("User increased product quantity")
     public void changeSepetQuantity(int number) {
 
-        String quantity = getAttribute(sepetQuantity, "value");
+        String quantity = sepetQuantity.getAttribute("value");
         int q = Integer.parseInt(quantity);
         String sum = String.valueOf(q + number);
 
@@ -42,31 +44,25 @@ public class CartPage {
         LOG.info("User changed sepet quantity");
     }
 
+    @Step("User clicked the refresh button")
     public void clickRefresh() {
 
         refreshButton.click();
         LOG.info("User click refresh button");
     }
 
+    @Step("User confirms cart update")
     public void verifyUpdateCart(String expected) {
 
-        ReusableMethods.waitForVisibility(popup,5);
-        ReusableMethods.assertText(expected, popup.getText());
+        ReusableMethods.waitForVisibility(popup, 5);
+        Assert.assertEquals(expected, popup.getText());
         LOG.info("User verify cart update");
     }
 
-    public void removeCart(){
+    @Step("User deleted product from cart")
+    public void removeCart() {
 
         kaldirButton.click();
         LOG.info("user deletes product from cart");
-
     }
-
-
-    public String getAttribute(WebElement element, String attribute) {
-
-        return element.getAttribute(attribute);
-    }
-
-
 }
