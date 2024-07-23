@@ -48,7 +48,7 @@ public class SearchResultsPage {
     public void pageVerify(String urlPageNumber) {
 
         String actualUrl = Driver.getDriver().getCurrentUrl();
-        Assert.assertTrue(actualUrl.contains(urlPageNumber));
+        Assert.assertTrue(actualUrl.contains("page=" + urlPageNumber));
         LOG.info("User verify that he is on the new page");
     }
 

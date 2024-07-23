@@ -25,7 +25,7 @@ public class KitapYurdu {
         allPages.homePage().searchProduct("roman");
         allPages.searchResultsPage().verifySearchResult("roman");
         allPages.searchResultsPage().clickPage("2");
-        allPages.searchResultsPage().pageVerify("page=2");
+        allPages.searchResultsPage().pageVerify("2");
         allPages.searchResultsPage().chooseRandomBook();
         allPages.productDetailsPage().verifySepetCount("0");
         allPages.productDetailsPage().sepeteEkleButton();
