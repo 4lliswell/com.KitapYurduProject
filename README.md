@@ -1,33 +1,82 @@
-● https://www.kitapyurdu.com/ sitesi açılır.
+# Kitapyurdu Web Sitesi Selenium TestNG Otomasyon Testi
 
-● Ana sayfanın açıldığı kontrol edilir.
+Bu proje, Selenium ve TestNG kullanılarak Kitapyurdu sitesi üzerinde otomasyon testleri yapmak amacıyla geliştirilmiştir.
 
-● Çerezler onaylanır. (eğer açılıyorsa)
+## Proje Amaçları
 
-● Urun arama satırına "roman" yazdırılır ve aratılır.
+- Kitapyurdu sitesini açarak ürün aratmak.
+- Arama sonuçlarını kontrol etmek.
+- Ürün sepete eklemek ve sepet aksiyonları.
 
-● Arama sonuçlarının "roman" içerdiğini  kontrol edilir. 
+## Gereksinimler
 
-● 2. sayfaya geçiş yapılır.
+- Java 8 veya üstü
+- Selenium WebDriver
+- TestNG
+- Log4j
+- Maven (proje bağımlılıklarını yönetmek için)
+- Allure-Report (raporlama için)
 
-● 2. sayfaya geçiş yapıldığı kontrol edilir.
+## Kurulum
 
-● Listelenen kitaplar içinden rastgele bir ürüne tıklanır. 
+1. **Projeyi İndirin:**
 
-● Sepete ekle butonuna tıklanır.
+   ```bash
+   git clone https://github.com/kullanici/proje-adı.git
+   cd proje-adı
+   ```
 
-● Sayfanın sağ üst kısmında bulunan sepet ikonundan ürünün eklendiği kontrol edilir.
+2. **Bağımlılıkları Yükleyin:**
 
-● Sepetim butonuna tıklanır.
+   
+   pom.xml
+   
 
-● Ürün miktarı 1 adet artırılır ve yenile butonuna tıklanır.
+## Nasıl Kullanılır
 
-● "Sepetiniz güncelleniyor!" yazısı doğrulanır.
+Proje bağımlılıkları yüklendikten sonra, testleri aşağıdaki komutla çalıştırabilirsiniz:
 
-● Ürün sepetten silinir (Çarpı butonuna tıklanır)
+```bash
+mvn test
+```
 
-● Sepetin boş olduğu kontrol edilir.
+## Kullanılan Teknolojiler
 
-# NOT: 
-     Raporlama olarak Allure-Report kullanınız.
-     Ayrıca log4j kullanınız.
+- Selenium WebDriver: Web uygulaması otomasyonu için kullanılır.
+- TestNG: Test senaryolarının organize edilmesi ve yönetilmesi için kullanılır.
+- Log4j: Loglama için kullanılır.
+- Allure-Report: Güzel ve detaylı raporlama için kullanılır.
+
+## Proje Yapısı
+
+Proje, aşağıdaki dizin yapısına sahiptir:
+
+- `src/test/java`: Test kodları
+  - `pages`: Sayfa objeleri için sınıflar
+  - `tests`: Test senaryoları
+  - `utilities`: Yardımcı sınıflar (Log4j vb.)
+
+## Senaryo Adımları ve Kod Örnekleri
+
+Proje içerisinde yer alan senaryolar aşağıda yer almaktadır:
+
+1. **Kitapyurdu sitesi açılır ve ana sayfa doğruluğu kontrol edilir:**
+
+2. **Çerez tercihlerinden kabul seçeneği işaretlenir ve devam edilir:**
+
+3. **Ürün arama satırına "roman" yazdırılır ve aratılır, sonuçların "roman" içerdiği kontrol edilir:**
+
+4. **2. sayfaya geçiş yapılır ve geçişin doğruluğu kontrol edilir:**
+
+5. **Listelenen kitaplardan birine tıklanır ve sepete ekle butonuna tıklanarak eklemenin doğruluğu kontrol edilir:**
+
+6. **Sepetim butonuna tıklanır, ürün miktarı artırılır ve güncellemenin doğruluğu kontrol edilir:**
+
+7. **Ürün sepetten silinir ve sepetin boş olduğu kontrol edilir:**
+
+
+## Notlar
+
+- Test senaryoları TestNG-POM kullanılarak yönetilmektedir.
+- Raporlama için Allure-Report kullanılmaktadır.
+- Loglama işlemleri Log4j kullanılarak yapılmaktadır.
